@@ -1,0 +1,325 @@
+.page_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+
+.page-header-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; // Spreads out the buttons across the header width
+  align-items: center;
+  margin-top: 10px; // Provides some vertical spacing from other elements
+  width: 100%; // Ensures the container uses the full width of its parent
+  gap: 5px;
+}
+
+.discover-your-superpowers {
+  padding: 5px 20px;
+  font-size: 1em;
+  background-color: #a83632;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.tour-start-button {
+  background-color: #007BFF; /* Bright but standard */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+  margin-right: 20px;
+  padding: 5px 10px; 
+
+  /* subtle shadow for 3D effect */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+  &:hover {
+    background-color: #0056b3; /* Slightly darker on hover */
+  }
+}
+
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; // Spread elements across the header
+  background-color: var(--main-background);
+  flex-direction: column;
+  align-items: center; 
+  margin: 10px; 
+  border-radius: 8px;
+}
+
+.index-number-input {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: var(--against-background);
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+
+.add-diary-button {
+  background-color: var(--against-background);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px;  
+  margin-right: 30px;
+}
+
+.stop-editing-button {
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+  padding: 16px;  
+}
+
+.save-diary-button {
+  background-color: var(--header-button-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px;  
+}
+
+.edit-button {
+  background-color: var(--header-button-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px;  
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 16px;  
+}
+
+.editing-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0056b3;
+  margin-bottom: 10px;
+}
+
+.tab-label-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 15px;
+}
+
+.tab-index {
+  font-size: 1.3em;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.template-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+
+.tab-header {
+  background-color: var(--main-background);
+  gap: 5px;
+}
+
+#emotionCheckbox{
+  display:flex;
+  justify-content:center;
+}
+
+.emotion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.select-intensity-rating, .select-emotion {
+  border: 1px solid var(--primary-color);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.date-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-date{
+  display: flex;
+  align-items: baseline;
+  margin: 0.4rem;
+}
+
+
+:host mat-datetimepicker-toggle, .timepicker{
+  display: flex;
+  align-items: center;
+}
+
+.date-label, .title-label {
+  margin-right: 5px;
+  gap: 2px;
+  margin-right: 10px;
+}
+
+.date-input, .title-input {
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 5px;
+  max-width: 60px;
+}
+
+.main_body {
+  width: 90%;
+  margin: 0 auto;  // Centers the main_body horizontally within its parent
+  padding-top: 20px;
+}
+
+mat-spinner {
+  margin: 1rem auto;
+}
+
+@media only screen and (min-width: 412px) and (max-width: 915px) {
+  /* Styles for medium devices */
+  .buttons-container {
+    gap: 5px;
+  }
+  .stop-editing-button {
+    padding: 8px;  
+  }
+  .save-diary-button {
+    padding: 8px;  
+  }
+  .edit-button {
+    padding: 16px;  
+  }
+  .delete-button {
+    padding: 8px;  
+  }
+  .select-intensity-rating, .select-emotion {
+    padding: 5px
+  }
+.date-label, .title-label {
+    gap: 2px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+  }
+  .date-input, .title-input {
+    min-width: 100px;
+    }
+}
+
+@media only screen and (min-width: 390px) and (max-width: 844px) {
+  /* Styles for medium devices */
+  .index-number-input {
+    font-size: 0.8em;
+  }
+  .buttons-container {
+    gap: 5px;
+  }
+  .stop-editing-button {
+    padding: 4px;  
+  }
+  .save-diary-button {
+    padding: 4px;  
+  }
+  .edit-button {
+    padding: 8px;  
+  }
+  .delete-button {
+    padding: 4px;  
+  }
+  .select-intensity-rating, .select-emotion {
+    padding: 5px
+  }
+  .date-input, .title-input {
+    min-width: 90px;
+    }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 720px) {
+  .select-intensity-rating, .select-emotion {
+    padding: 5px
+  }
+  .date-input, .title-input {
+  min-width: 140px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .select-intensity-rating, .select-emotion {
+    padding: 10px
+  }
+  .date-input, .title-input {
+  min-width: 200px;
+  }
+}
+
+
+@media only screen and (min-width: 820px) and (max-width: 1180px) {
+  .select-intensity-rating, .select-emotion {
+    padding: 10px
+  }
+  .date-input, .title-input {
+  min-width: 200px;
+  }
+}
+
+@media only screen and (min-width: 912px) and (max-width: 1368px) {
+  .select-intensity-rating, .select-emotion {
+    padding: 10px
+  }
+  
+  .date-input, .title-input {
+  min-width: 200px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .select-intensity-rating, .select-emotion {
+    padding: 10px
+  }
+  
+  .date-input, .title-input {
+  min-width: 200px;
+  }
+}

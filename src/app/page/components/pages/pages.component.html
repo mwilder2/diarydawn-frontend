@@ -1,0 +1,141 @@
+<!-- <div *ngIf="meetsRequirement() | async as meetsReq"> -->
+<!-- <button class="discover-your-superpowers" *ngIf="meetsReq" [matTooltip]="wordCountFeedback"
+(click)="discoverYourSuperpowers(this._selectedBookId)">Discover Your Superpowers</button> -->
+<!-- </div> -->
+<div class="page_container">
+  <div class="page-header-buttons">
+    <app-navigation-button [routePath]="paths.bookshelf" [label]="backToBookshelfLabel"></app-navigation-button>
+    <button class="discover-your-superpowers" id="#discoverYourSuperpowers"
+      (click)="confirmAndDiscoverYourSuperpowers(this._selectedBookId)">Discover Your Superpowers</button>
+    <button class="tour-start-button" (click)="startTour()">Take a Tour</button>
+  </div>
+  <div class="header-container">
+    <div class="index-number-input" id="diaryTabSelection">
+      <mat-label>Selected diary tab:</mat-label>
+      <mat-form-field>
+        <input aria-label="Select Diary Number" [value]="displayedSelected"
+          [readonly]="!(isPreviousEntryEnabled$ | async)" matInput type="number" (input)="onInput($event)">
+      </mat-form-field>
+    </div>
+    <!-- Aria-live region for announcing the editing state -->
+    <div aria-live="polite" class="editing-status">
+      <span id="editingMode" *ngIf="isEditEnabled$ | async">Editing mode activated</span>
+    </div>
+    <div class="buttons-container">
+      <button aria-label="Add New Diary Entry" (click)="addDiaryPage()" [disabled]="!(isPreviousEntryEnabled$ | async)"
+        class="add-diary-button" id="addNewDiary">Add new diary</button>
+      <button id="saveDiaryEntry" (click)="savePageEntry()" *ngIf="!(isEditEnabled$ | async)"
+        [disabled]="!(isNewEntryEnabled$ | async)" class="save-diary-button">Save diary</button>
+      <button aria-label="Stop Editing Diary Entry" class="stop-editing-button" (click)="stopEditing()"
+        *ngIf="isEditEnabled$ | async" id="stopAndSaveEdits">Stop editing</button>
+      <button id="editDiaryEntry" aria-label="Edit Diary Entry" (click)="editDiary()" *ngIf="!(isEditEnabled$ | async)"
+        [disabled]="isNewEntryEnabled$ | async" class="edit-button">Edit</button>
+      <button id="deleteDiaryEntry" aria-label="Delete Diary Entry" (click)="deletePageEntry()"
+        class="delete-button">Delete</button>
+    </div>
+  </div>
+  <mat-tab-group id="tabLabel" [selectedIndex]="selected.value" (selectedTabChange)="onSelectedIndexChange($event)"
+    animationDuration="2000ms">
+    <form [formGroup]="pageForm">
+      <div formArrayName="pageForms">
+        <ng-container *ngFor="let control of pageForms.controls; let index = index">
+          <div [formGroupName]="index">
+            <mat-tab [disabled]="!(isPreviousEntryEnabled$ | async)">
+              <ng-template matTabLabel>
+                <div class="tab-label-container">
+                  <div class="tab-index">{{ index + 1 }}</div>
+                  <div class="template-display">
+                    <mat-label>Diary Template:</mat-label>
+                    <div> {{ control.value.entryTypeData.entryType | titlecase }} </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template matTabContent>
+                <div class="tab-header">
+                  <mat-checkbox id="emotionCheckbox" [disabled]="(isPreviousEntryEnabled$ | async) ?? false"
+                    (change)="toggleEmotion($event)">Include Emotion</mat-checkbox>
+                  <div class="emotion-container" *ngIf="showEmotionInput">
+                    <div class="select-emotion">
+                      <mat-label for="emotionSelect">Select Emotion:</mat-label>
+                      <mat-select id="emotionSelect" formControlName="emotionName" matInput
+                        placeholder="No emotion selected" aria-label="Select your emotion">
+                        <mat-option *ngFor="let emotion of emotions"
+                          [disabled]="(isPreviousEntryEnabled$ | async) ?? false" [value]="emotion"
+                          class="emotion-option">{{ emotion }}</mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="select-intensity-rating">
+                      <mat-label for="emotionIntensity">Select Intensity Rating:</mat-label>
+                      <mat-slider id="emotionIntensity" [disabled]="(isPreviousEntryEnabled$ | async) ?? false"
+                        [displayWith]="formatLabel" discrete max="10" min="0" showTickMarks step="1"
+                        aria-label="Adjust emotion intensity">
+                        <input formControlName="emotionValue" matSliderThumb aria-label="Adjust emotion intensity" />
+                      </mat-slider>
+                    </div>
+                  </div>
+                  <div class="date-title-container">
+                    <div class="tab-date">
+                      <mat-label class="date-label">Date:</mat-label>
+                      <div class="timepicker">
+                        <input class="date-input" aria-label="Select Diary Entry Date" [matDatetimepicker]="picker"
+                          [readonly]="isPreviousEntryEnabled$ | async" formControlName="date" matInput
+                          placeholder="Date and Time" />
+                        <mat-datetimepicker-toggle aria-label="Open Date and Time Picker"
+                          [disabled]="(isPreviousEntryEnabled$ | async) ?? false" [for]="picker"
+                          matSuffix></mat-datetimepicker-toggle>
+                        <mat-datetimepicker #picker></mat-datetimepicker>
+                      </div>
+                    </div>
+                    <div class="title-label">
+                      <mat-label class="title-label">Title:</mat-label>
+                      <input aria-label="Diary Entry Title" [readonly]="isPreviousEntryEnabled$ | async"
+                        class="title-input" formControlName="title" placeholder="Title" />
+                    </div>
+                  </div>
+                </div>
+                <div class="main_body">
+                  <ng-container *ngIf="!this.isPagesLoading; else loading"
+                    [ngSwitch]="control.value.entryTypeData.entryType">
+                    <div *ngSwitchCase="'limitless'">
+                      <limitless #limitless (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></limitless>
+                    </div>
+                    <div *ngSwitchCase="'gratitude'">
+                      <gratitude #gratitude (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></gratitude>
+                    </div>
+                    <div *ngSwitchCase="'affirmation'">
+                      <affirmation #affirmation (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></affirmation>
+                    </div>
+                    <div *ngSwitchCase="'lesson'">
+                      <lesson #lesson (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></lesson>
+                    </div>
+                    <div *ngSwitchCase="'dream'">
+                      <dream #dream (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.symbols"></dream>
+                    </div>
+                    <div *ngSwitchCase="'emotion'">
+                      <emotion #emotion (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></emotion>
+                    </div>
+                    <div *ngSwitchCase="'journey'">
+                      <journey #journey (entryTypeDataChange)="onChildValueChange($event)"
+                        [entryTypeData]="control.value.entryTypeData.content"></journey>
+                    </div>
+                    <div *ngSwitchDefault> DiaryModel Template Not Available </div>
+                  </ng-container>
+                  <ng-template #loading>
+                    <mat-spinner aria-label="Loading... please wait"></mat-spinner>
+                  </ng-template>
+                </div>
+              </ng-template>
+            </mat-tab>
+          </div>
+        </ng-container>
+      </div>
+    </form>
+  </mat-tab-group>
+</div>
+<ngx-guided-tour></ngx-guided-tour>

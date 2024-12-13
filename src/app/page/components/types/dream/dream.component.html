@@ -1,0 +1,24 @@
+<ng-container>
+  <div class="dream-container">
+    <div class="dream-symbols">
+      <mat-form-field appearance="fill">
+        <mat-label>List all symbols in your dream</mat-label>
+        <mat-chip-grid #emotionGrid aria-label="List symbols observed in your dream">
+          <mat-chip-row (removed)="remove(symbol)" *ngFor="let symbol of entryTypeData.symbols"> {{ symbol }} <button
+              *ngIf="!(isPreviousEntryEnabled$ | async)" [attr.aria-label]="'Remove symbol ' + symbol" matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input (matChipInputTokenEnd)="add($event)" [matChipInputAddOnBlur]="addOnBlur"
+            [matChipInputFor]="emotionGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize
+            placeholder="Press Enter, use a Comma, or click to add a dream symbol" />
+          <button (click)="add()" mat-button>Add Dream Symbol</button>
+        </mat-chip-grid>
+      </mat-form-field>
+      <p class="prompt" id="dreamInstructions">Capture and analyze the symbols from your dreams to uncover deeper
+        meanings and insights. List each symbol and reflect on how they might relate to your subconscious thoughts and
+        daily life. </p>
+    </div>
+  </div>
+</ng-container>

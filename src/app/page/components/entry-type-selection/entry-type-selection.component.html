@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">Select a Diary Type</h2>
+  <div class="diary-types">
+    <div class="diary-type" *ngFor="let diaryType of diaryTypes" (click)="onDiaryTypeSelected(diaryType)"
+      [ngClass]="diaryType | lowercase"
+      [attr.aria-label]="'Select diary type: ' + diaryType + '. ' + getDescriptionForDiaryType(diaryType)"
+      role="button">
+      <i class="material-icons diary-type-icon">{{ getIconForDiaryType(diaryType) }}</i>
+      <div class="diary-type-details">
+        <h3 class="diary-type-name">{{ diaryType }}</h3>
+        <p>{{ getDescriptionForDiaryType(diaryType) }}</p>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="accent" (click)="dialogRef.close()" class="cancel-button"
+    aria-label="Close diary type selection dialog">Close</button>
+</div>

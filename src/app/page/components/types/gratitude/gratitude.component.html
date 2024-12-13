@@ -1,0 +1,10 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Gratitude Diary Entry</mat-label>
+    <textarea class="text-area-common" (input)="onValueChange($event)" [(ngModel)]="entryTypeData"
+      [fontColor]="'var(--gratitude-diary)'" [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize matInput
+      rows="5" aria-describedby="gratitudeInstructions"></textarea>
+  </mat-form-field>
+  <p class="prompt" id="gratitudeInstructions">Reflect on something you're grateful for today. Describe what it is and
+    why you're thankful for its presence in your life.</p>
+</ng-container>

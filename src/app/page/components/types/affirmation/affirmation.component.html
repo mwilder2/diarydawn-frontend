@@ -1,0 +1,10 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Affirmation Diary Entry</mat-label>
+    <textarea class="text-area-common" (input)="onValueChange($event)" [(ngModel)]="entryTypeData"
+      [fontColor]="'var(--affirmation-diary)'" [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize matInput
+      rows="5" aria-describedby="affirmationInstructions"></textarea>
+  </mat-form-field>
+  <p class="prompt" id="affirmationInstructions">State a positive affirmation or belief about yourself. Write about how
+    it empowers you and contributes to your personal growth.</p>
+</ng-container>

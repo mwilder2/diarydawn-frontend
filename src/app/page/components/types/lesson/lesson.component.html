@@ -1,0 +1,11 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Lesson Diary Entry</mat-label>
+    <textarea class="text-area-common" (input)="onValueChange($event)" [(ngModel)]="entryTypeData"
+      [fontColor]="'var(--lesson-diary)'" [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize matInput rows="5"
+      aria-describedby="lessonInstructions"></textarea>
+  </mat-form-field>
+  <p class="prompt" id="lessonInstructions">Think about a recent challenge or experience. What did you learn from it?
+    Describe the situation and the insights gained, and how these lessons might influence your future actions or
+    decisions.</p>
+</ng-container>

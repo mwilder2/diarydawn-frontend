@@ -1,0 +1,10 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Emotion Diary Entry</mat-label>
+    <textarea class="text-area-common" (input)="onValueChange($event)" [(ngModel)]="entryTypeData"
+      [fontColor]="'var(--emotion-diary)'" [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize matInput rows="5"
+      aria-describedby="emotionInstructions"></textarea>
+  </mat-form-field>
+  <p class="prompt" id="emotionInstructions">Describe a particular emotion you're experiencing. Explore its origin and
+    how it's affecting you in this moment.</p>
+</ng-container>

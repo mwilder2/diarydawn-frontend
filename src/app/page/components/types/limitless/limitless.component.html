@@ -1,0 +1,10 @@
+<ng-container>
+  <mat-form-field appearance="fill">
+    <mat-label>Limitless Diary Entry</mat-label>
+    <textarea class="text-area-common" (input)="onValueChange($event)" [(ngModel)]="entryTypeData"
+      [fontColor]="'var(--limitless-diary)'" [readonly]="(isPreviousEntryEnabled$ | async)" appAutosize matInput
+      rows="5" aria-describedby="limitlessInstructions"></textarea>
+  </mat-form-field>
+  <p class="prompt" id="limitlessInstructions">Write about anything and everything that comes to your mind. There are no
+    limitations to your thoughts and expressions in this entry type.</p>
+</ng-container>

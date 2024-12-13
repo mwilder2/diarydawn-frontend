@@ -1,0 +1,184 @@
+.dialog-container {
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow-y: auto; /* Enables vertical scroll only when needed */
+}
+
+.dialog-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.diary-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+  padding: 10px
+}
+
+.diary-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.diary-type:hover {
+  transform: translateY(-5px);
+}
+
+.diary-type-icon {
+  font-size: 40px; /* Larger icons */
+  color: var(--icon-color, #666); /* Default color, customizable per type */
+  margin-bottom: 5px;
+}
+
+.diary-type-details {
+  text-align: center;
+}
+
+.diary-type-name {
+  // color: #084c61;
+  margin-bottom: 4px;
+}
+
+.cancel-button {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 10px 50px;
+  border: none;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.cancel-button:hover {
+  background: #b0b0b0;
+}
+
+/* Specific styles for each diary type */
+.limitless, .gratitude, .affirmation, .emotion, .lesson, .dream, .journey {
+  background-color: #f0f0f0;
+  font-size: 0.8rem;
+  transition: background-color 0.3s;
+}
+
+.limitless  { color: var(--limitless-diary); }
+.gratitude  { color: var(--gratitude-diary); }
+.affirmation  { color: var(--affirmation-diary); }
+.emotion  { color: var(--emotion-diary); }
+.lesson  { color: var(--lesson-diary); }
+.dream  { color: var(--dream-diary); }
+.journey  { color: var(--journey-diary); }
+
+.limitless:active  { background-color: var(--limitless-diary-light); }
+.gratitude:active  { background-color: var(--gratitude-diary-light); }
+.affirmation:active  { background-color: var(--affirmation-diary-light); }
+.emotion:active  { background-color: var(--emotion-diary-light); }
+.lesson:active  { background-color: var(--lesson-diary-light); }
+.dream:active  { background-color: var(--dream-diary-light); }
+.journey:active  { background-color: var(--journey-diary-light); }
+
+
+@media only screen and (min-width: 414px) and (max-width: 896px) {
+/* Styles for extra small devices */
+.dialog-container {
+}
+
+.diary-types {
+}
+}
+
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+//   /* Styles for extra small devices */
+//   .dialog-container {
+//     width: 100%; /* Set a max-width for larger screens */
+//   }
+  
+//   .diary-types {
+//     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+//   }
+// }
+  
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+//  /* Styles for extra small devices */
+//  .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+    
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+// /* Styles for extra small devices */
+// .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+// /* Styles for extra small devices */
+// .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+// /* Styles for extra small devices */
+// .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+// /* Styles for extra small devices */
+// .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+// /* Styles for extra small devices */
+// .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+         
+// @media only screen and (min-width: 599px) and (max-width: 700px) {
+//  /* Styles for extra small devices */
+//  .dialog-container {
+//   width: 100%; /* Set a max-width for larger screens */
+// }
+
+// .diary-types {
+//   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+// }
+// }
+                
