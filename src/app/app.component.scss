@@ -1,0 +1,17 @@
+.app_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 10px;
+}
+
+.header_container, .footer_container {
+  flex: 0 0 auto;
+}
+
+.main_container {
+  flex: 1 0 auto;
+  max-width: 1200px; 
+  width: 100%;    
+  margin: 0 auto;
+}
