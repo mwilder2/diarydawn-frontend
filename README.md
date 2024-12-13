@@ -21,7 +21,7 @@ Before you begin, ensure you have the following installed on your machine:
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mwilder2/diarydawn-frontend.git
    cd diarydawn-frontend
 
 2. Install dependencies:
