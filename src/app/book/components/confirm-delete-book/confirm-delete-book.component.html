@@ -1,0 +1,19 @@
+<div class="delete-dialog-container">
+  <div class="delete-book-dialog">
+    <h2>Delete Book</h2>
+    <p> Are you sure you want to delete this book? Deleting a book with pre-existing pages will also permanently delete
+      those pages. </p>
+    <p>
+      <strong>Note:</strong> If you want to keep the pages, consider transferring them to another book instead.
+    </p>
+    <mat-checkbox [(ngModel)]="confirmed">I understand the consequences and want to delete the book.</mat-checkbox>
+  </div>
+  <div class="mat-dialog-actions">
+    <button mat-raised-button mat-dialog-close aria-label="Cancel">Cancel</button>
+    <button (click)="openTransferModal(book)" color="primary" mat-button
+      aria-label="Transfer Pages to Another Book">Transfer Pages Instead</button>
+    <button (click)="onDelete()" [disabled]="!confirmed" color="warn" mat-raised-button color="warn"
+      aria-label="Delete Book"
+      matTooltip="This action is irreversible and will permanently delete the book and its pages.">Delete Book</button>
+  </div>
+</div>

@@ -1,0 +1,220 @@
+.bookshelf {
+  padding: 20px; // Add padding to ensure content doesn't touch the edges
+
+  .bookshelf-header {
+    display: flex;
+    justify-content: space-between; // Spread elements across the header
+    align-items: center; // Center align items vertically
+    margin-bottom: 20px;
+  }
+
+  .bookshelf-content {
+    margin-bottom: 20px;
+  }
+
+  .tour-start-button {
+    padding: 8px 16px;
+    background-color: #007BFF; /* Bright but standard */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    /* Optional: subtle shadow for 3D effect */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  
+    &:hover {
+      background-color: #0056b3; /* Slightly darker on hover */
+    }
+  }
+
+  .bookshelf-content-header {
+    display: flex;
+    justify-content: center; // Align the add button to the center
+
+    .btn-primary {
+      padding: 10px 20px; // Make the button larger and more prominent
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--main-background); // Change the background color on hover
+    }
+  }
+
+  .bookshelf-content-body-container-header, 
+  .bookshelf-content-body-container-body-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 1rem;
+    
+
+    > div {
+      flex: 1;
+      text-align: center;
+      &:nth-child(5) { flex: 2; } // Actions
+      &:nth-child(2) { flex: 3; } // Description
+      &:nth-child(3) { flex: 2; } // Last Updated
+      &:nth-child(4) { flex: 3; } // Color Chart
+    }
+  }
+
+
+.btn {
+  display:flex;
+  justify-content: start;
+  font-size: 1rem;
+  padding: 2px 4px;
+  margin-right: 10px;
+  border-radius: 2px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+}
+
+.bookshelf-content-body-container-body-row-actions {
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  align-self: stretch;
+  font-size: 0.8rem; /* Adjusts the font size of the buttons */
+}
+
+.bookshelf-content-body-container-body-row {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  color: var(--against-background);
+
+  &:hover {
+    background-color: var(--main-background);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for medium devices */
+  .bookshelf {
+    .bookshelf-content-header {  
+      .btn-primary {
+        padding: 5px 15px; // Make the button larger and more prominent
+      }
+    }
+      .tour-start-button {
+        padding: 10px 16px;
+        font-size: 1rem;
+      }
+  
+    .bookshelf-content-body-container-header, 
+    .bookshelf-content-body-container-body-row {
+      padding: 10px;
+      font-size: 1rem;
+  
+      > div {
+        &:nth-child(1) { flex: 1; } // Actions
+        &:nth-child(2) { flex: 2; } // Description
+        &:nth-child(3) { flex: 2; } // Last Updated
+        &:nth-child(4) { flex: 3; } // Color Chart
+      }
+    }
+  
+    .bookshelf-content-body-container-body-row {
+      margin-bottom: 10px;
+    }
+  
+    .btn {
+      font-size: 1rem;
+      padding: 4px;
+      margin-right: 10px;
+      margin-top: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  .bookshelf-content-body-container-body-row-actions {
+    font-size: 0.8rem;
+  }  
+}
+
+
+@media only screen and (max-width: 599px) {
+  /* Styles for extra small devices */
+  .bookshelf {
+    margin-top: 1.5rem;
+    padding: 0px;
+    width: 100%;
+  
+    .bookshelf-header {
+      margin: 0;
+    }
+
+    .tour-start-button {
+      margin-right: 10px;
+      padding: 5px 10px;
+  }
+  
+    .bookshelf-content {
+      margin-bottom: 20px;
+    }
+  
+    .bookshelf-content-header {
+      flex: 1 0 100%;
+      margin-top: 5px;
+      font-size: 0.7rem;
+      .btn-primary {
+        margin-top: 1.5rem;
+        padding: 4px;
+        font-size: 0.8rem;
+      }
+    }
+    .bookshelf-content-body-container-header, 
+    .bookshelf-content-body-container-body-row {      
+      margin-top: 15px;
+      font-size: 0.7rem;
+      
+    > div {
+      flex: 1;
+      &:nth-child(1) { flex: 1; } // Actions
+      &:nth-child(2) { flex: 1; } // Description
+      &:nth-child(3) { flex: 1; } // Last Updated
+      &:nth-child(4) { flex: 2; } // Color Chart
+    }
+  }
+  
+    .btn {
+      display:flex;
+      justify-content: start;
+      font-size: 0.7rem;
+      padding: 2px 4px;
+      margin-top: 10px;
+      margin-right: 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  
+    .bookshelf-content-body-container-body-row-actions {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  /* Styles for extra small devices */
+  .btn {
+    display:flex;
+    justify-content: start;
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    margin-top: 10px;
+    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

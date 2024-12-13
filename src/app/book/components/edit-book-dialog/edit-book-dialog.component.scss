@@ -1,0 +1,38 @@
+.edit-book-dialog-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 400px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 599px) {
+    /* Styles for extra small devices */
+    .edit-book-dialog-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    mat-form-field {
+      width: 90%;
+      margin: 1rem;
+    }
+    
+    mat-dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+}

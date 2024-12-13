@@ -1,0 +1,48 @@
+<div class="transfer-modal">
+  <form [formGroup]="form">
+    <mat-dialog-content>
+      <h2>Transfer Pages</h2>
+      <!-- Destination Book -->
+      <div class="transfer-modal">
+        <mat-form-field>
+          <mat-label>Destination Book</mat-label>
+          <mat-select formControlName="targetBookId">
+            <!-- Loop through the available books and create option elements -->
+            <mat-option *ngFor="let book of books$ | async" [value]="book.id" aria-label="Destination Book"> {{
+              book.title }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- Transfer Options -->
+      <section>
+        <mat-radio-group formControlName="transferOption">
+          <mat-radio-button value="all_pages" aria-label="Transfer all pages">Transfer all pages</mat-radio-button>
+          <mat-radio-button value="selected_pages" aria-label="Transfer selected pages">Transfer selected
+            page(s)</mat-radio-button>
+        </mat-radio-group>
+      </section>
+      <!-- Page Selection -->
+      <div class="transfer-modal" *ngIf="isTransferSelectedPages()">
+        <ng-container *ngIf="pages$ | async as pages">
+          <mat-form-field *ngIf="pages.length > 0">
+            <mat-label>Select pages to transfer:</mat-label>
+            <mat-select formControlName="selectedPages" multiple>
+              <mat-option *ngFor="let page of pages" [value]="page" aria-label="Page"> {{ page.title }} ({{
+                page.entryTypeData.entryType }}) </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+      </div>
+      <!-- Post-Transfer Actions -->
+      <section>
+        <mat-checkbox formControlName="deleteSourceBook" aria-label="Delete source book">Delete source
+          book</mat-checkbox>
+      </section>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close aria-label="Cancel">Cancel</button>
+      <button (click)="transferPages()" mat-button aria-label="Transfer"
+        [disabled]="form.invalid || !form.dirty">Transfer</button>
+    </mat-dialog-actions>
+  </form>
+</div>

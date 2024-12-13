@@ -1,0 +1,19 @@
+<div class="edit-book-dialog-container">
+  <form [formGroup]="editBookForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput aria-label="Book Title" />
+      <mat-error *ngIf="editBookForm.get('title')?.invalid">Title is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea rows="4" formControlName="description" matInput aria-label="Book Description"></textarea>
+      <mat-error *ngIf="editBookForm.get('description')?.invalid">Description is required.</mat-error>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button type="button" mat-raised-button (click)="onCancel()" aria-label="Cancel Edit Book Dialog">Cancel</button>
+      <button type="submit" mat-raised-button color="accent" [disabled]="editBookForm.invalid" mat-button
+        aria-label="Save Book">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>

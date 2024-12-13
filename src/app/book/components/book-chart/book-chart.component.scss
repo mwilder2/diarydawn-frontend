@@ -1,0 +1,44 @@
+.book-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto; /* This centers the container horizontally */
+  width: 230px; /* Ensure the container fills the screen */
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for medium devices */
+  .book-chart-container {
+    margin: auto; /* This centers the container horizontally */
+    width: 210px; /* Ensure the container fills the screen */
+  
+    .spinner-container {
+      padding: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  /* Styles for extra small devices */
+  .book-chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    margin: 0;
+    width: 150px;
+
+    .spinner-container {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+}

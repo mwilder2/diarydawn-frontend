@@ -1,0 +1,59 @@
+<div class="bookshelf">
+  <div class="bookshelf-header">
+    <app-navigation-button [routePath]="paths.profile" [label]="backToProfileLabel"></app-navigation-button>
+    <button (click)="startTour()" class="tour-start-button">Take a Tour</button>
+  </div>
+  <div class="bookshelf-content">
+    <div class="bookshelf-content-header">
+      <button (click)="onSaveNewBook()" class="btn btn-primary" aria-label="Add New Book" id="addBookButton">Add
+        Book</button>
+    </div>
+    <div class="bookshelf-content-body">
+      <!-- Container for the books -->
+      <div class="bookshelf-content-body-container">
+        <!-- Header for the bookshelf (column titles) -->
+        <div class="bookshelf-content-body-container-header">
+          <div>
+            <h4>Actions</h4>
+          </div>
+          <div>
+            <h4>Title</h4>
+          </div>
+          <div>
+            <h4>Description</h4>
+          </div>
+          <div>
+            <h4>Color Chart</h4>
+          </div>
+        </div>
+        <!-- Container body (rows of books) -->
+        <div class="bookshelf-content-body-container-body">
+          <div class="bookshelf-content-body-container-body" cdkDropList (cdkDropListDropped)="onDrop($event)">
+            <div *ngFor="let book of books$ | async" class="bookshelf-content-body-container-body-row" cdkDrag>
+              <div class="bookshelf-content-body-container-body-row-actions">
+                <button (click)="editBook(book)" class="btn btn-primary" aria-label="Edit Book">Edit</button>
+                <button (click)="openBookInfoPopup(book)" class="btn btn-success" id="viewBookButton"
+                  aria-label="View Book Diary Entries Info">View</button>
+                <button (click)="deleteBook(book)" class="btn btn-danger" aria-label="Delete Book">Delete</button>
+                <button (click)="openTransferModal(book)" [disabled]="!hasPages(book)" class="btn btn-info"
+                  [appDisabledTooltip]="!hasPages(book)" aria-label="Transfer Book Pages to Another Book"
+                  id="transferPagesButton"
+                  matTooltip="You must have at least 2 pages in a book and at least 1 other book to transfer pages">Transfer</button>
+              </div>
+              <div class="bookshelf-content-body-container-body-row-title">
+                <h4>{{ book.title | truncate:20 }}</h4>
+              </div>
+              <div class="bookshelf-content-body-container-body-row-author">
+                <h4>{{ book.description | truncate:50 }}</h4>
+              </div>
+              <div class="bookshelf-content-body-container-body-row-chart">
+                <app-book-chart [book]="book"></app-book-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-guided-tour></ngx-guided-tour>

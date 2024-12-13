@@ -1,0 +1,10 @@
+<div class="book-chart-container" *ngIf="book">
+  <ng-container *ngIf="isLoaded; else loading">
+    <canvas #chartCanvas></canvas>
+  </ng-container>
+  <ng-template #loading>
+    <div class="spinner-container">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

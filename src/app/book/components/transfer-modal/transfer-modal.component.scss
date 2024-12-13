@@ -1,0 +1,15 @@
+.transfer-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-radio-group {
+    display: flex;
+    gap: 1rem;
+  }
+}

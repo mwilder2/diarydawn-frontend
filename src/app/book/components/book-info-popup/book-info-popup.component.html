@@ -1,0 +1,22 @@
+<div class="book-info-popup" *ngIf="book">
+  <h2 mat-dialog-title>{{ book?.title }}</h2>
+  <mat-dialog-content>
+    <div class="progress-bars">
+      <div *ngFor="let bar of bars; index as i">
+        <div class="bar-label">
+          <span *ngIf="bar.value !== 0 && bar.value"> {{ diaryTypeNames[i + 1] }} : {{ bar.value }}% </span>
+          <span *ngIf="!bar.value">{{ diaryTypeNames[i + 1] }} : 0%</span>
+        </div>
+        <mat-progress-bar [value]="bar.value" color="accent" mode="determinate">
+        </mat-progress-bar>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="close-button" mat-raised-button mat-dialog-close aria-label="Close Book Info Dialog">Close</button>
+    <button class="open-book-button" (click)="openBook(book?.id)" aria-label="Open Book" mat-raised-button
+      color="primary">Open Book</button>
+    <button (click)="discoverYourSuperpowers(book?.id)" class="discover-your-superpowers"
+      aria-label="Discover Your Superpowers"> Discover Your Superpowers </button>
+  </mat-dialog-actions>
+</div>

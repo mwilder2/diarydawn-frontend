@@ -1,0 +1,84 @@
+    /* Styles for extra small devices */
+    .book-info-popup {
+      width: 100%;
+      h2 {
+        margin: 0;
+      }
+    
+      .progress-bars {
+        display: flex;
+        flex-direction: column;
+    
+        .bar-label {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    
+      mat-progress-bar {
+        background-color: #333;
+        height: 0.5rem;
+      }
+
+      mat-dialog-actions {
+        display: flex;
+        justify-content: center;
+      }
+
+      button {
+        margin: 0.5rem;
+        font-size: 0.9em;
+        border-radius: 4px;
+        border: none;
+      }
+
+      
+
+      .open-book-button {
+        color: white;
+      }
+        
+
+      .discover-your-superpowers {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        background-color: #a83632;
+        color: white;
+        button.discover-your-superpowers:disabled {
+          opacity: 0.5;  /* Makes the button appear faded */
+          cursor: not-allowed;  /* Shows a 'not allowed' cursor when hovered */
+      }
+      }
+    }
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for medium devices */
+}
+
+@media only screen and (max-width: 599px) {
+    /* Styles for extra small devices */
+    .book-info-popup {
+      width: 100%;
+
+      h2 {
+        margin: 0;
+      }
+
+      mat-progress-bar {
+        height: 0.5rem;
+      }
+
+
+      button {
+        margin: 0.5rem;
+        font-size: 0.9em;
+        border-radius: 4px;
+      }
+
+      .discover-your-superpowers {
+        padding: 5px 20px;
+        font-size: 0.9em;
+      }
+    }
+}
