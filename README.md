@@ -1,59 +1,60 @@
-# DiaryDawnFrontend
+# Diary Dawn Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Diary Dawn is a personal diary platform designed to help individuals reflect on their journeys, discover their strengths, and cherish their unique stories. Built with a passion for personal growth and modern technology, it provides a safe and private space for self-expression and development.
 
-## Development server
+This repository contains the Angular-based frontend for Diary Dawn.
 
-To start a local development server, run:
+## Features
+- User-friendly diary interface
+- Personalized insights and reflections
+- Seamless integration with backend services
+- Built with modern web development tools for a responsive and intuitive experience
 
-```bash
+## Prerequisites
+Before you begin, ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [Angular CLI](https://angular.io/cli) (globally installed)
+- A package manager like `npm` or `yarn`
+
+## Getting Started
+
+### Installation
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd diarydawn-frontend
+
+2. Install dependencies:
+npm install
+Development
+To start a local development server:
+
+
 ng serve
-```
+By default, the app will run at http://localhost:4200/.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Production Build
+To create a production build:
 
-## Code scaffolding
+ng build --prod
+The compiled files will be available in the dist/ directory.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Docker Support
+This project can also be deployed using Docker. To build and run the Docker container:
 
-```bash
-ng generate component component-name
-```
+1. Build the Docker image:
+docker build -t diary-dawn-frontend.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Run the container:
+docker run -p 8080:80 diary-dawn-frontend
+The application will be accessible at http://localhost:8080/.
 
-```bash
-ng generate --help
-```
+About the Author
+Diary Dawn was created by Matthew Ray Wilder, inspired by a journey of self-discovery and a desire to empower others through technology and modern psychology. This platform reflects a commitment to making personal growth accessible to everyone.
 
-## Building
+License
+This project is licensed under the MIT License.
 
-To build the project run:
+Contact
+For more information or questions, please feel free to reach out via the Diary Dawn platform or directly through the contact details provided.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
