@@ -1,0 +1,21 @@
+.projects-page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.mat-tab-group {
+  width: 80%;
+  max-width: 1200px;
+}
+
+.mat-tab-body-content {
+  padding: 1rem;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .mat-tab-group {
+    width: 90%;
+  }
+}

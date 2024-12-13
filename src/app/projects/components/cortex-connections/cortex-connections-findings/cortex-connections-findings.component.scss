@@ -1,0 +1,58 @@
+.findings-container {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 900px;
+
+  h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: var(--dream-diary-dark);
+    margin-bottom: 15px;
+    margin-top: 30px;
+  }
+
+  p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 20px;
+    margin-bottom: 20px;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  .visual-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .visual-image {
+      max-width: 45%;
+      height: auto;
+      margin: 10px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
