@@ -1,0 +1,10 @@
+<!-- chatgpt-interface.component.html -->
+<div class="chat-container">
+  <div class="messages" id="messagesContainer">
+    <div *ngFor="let message of messages" class="message" [class.user]="message.sender === 'user'"> {{ message.text }}
+    </div>
+  </div>
+  <input [(ngModel)]="inputText" (keyup.enter)="sendMessage(inputText)" placeholder="Type a message...">
+  <button (click)="sendMessage(inputText)">Send</button>
+  <mat-spinner *ngIf="loading" diameter="30"></mat-spinner>
+</div>

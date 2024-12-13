@@ -1,0 +1,13 @@
+<div class="confirm-generation-dialog">
+  <h1 mat-dialog-title>Discover Your Superpowers</h1>
+  <mat-dialog-content>
+    <p>{{ dialogMessage }}</p>
+    <mat-checkbox [(ngModel)]="confirmed">I understand and agree to the processing of my data to uncover my
+      superpowers.</mat-checkbox>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    <button class="proceed" mat-raised-button color="primary" [disabled]="!confirmed"
+      (click)="confirmAction()">Proceed</button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,99 @@
+.chatgpt-section {
+  padding: 20px;
+  background-color: #f7f7f7; /* Light background to differentiate section */
+  border-top: 2px solid #ddd; /* Visual separation from the content above */
+  margin-top: 1rem;
+}
+
+.chat-heading {
+  font-size: 1.5em; /* Larger font for heading */
+  color: #333;
+  text-align: center;
+}
+
+.chat-intro {
+  font-size: 1em;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px; /* Space before chat interface */
+  font-style: italic; /* Italicize the introductory text */
+}
+
+/* Additional styles for better expansion and responsiveness */
+.chatgpt-interface {
+  max-width: 800px; /* Limit the maximum width for better readability */
+  margin: 0 auto; /* Center the chat interface */
+}
+
+.chatgpt-interface .message {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Separate each message */
+}
+
+.chatgpt-interface .message:last-child {
+  border-bottom: none; /* Remove bottom border from the last message */
+}
+
+
+@media only screen and (max-width: 599px) {
+  
+  .chatgpt-section {
+    padding: 20px;
+    margin: 1rem;
+  }
+  
+  .chat-heading {
+    font-size: 1.5em; /* Larger font for heading */
+  }
+  
+  .chat-intro {
+    font-size: 1em;
+    margin-bottom: 20px; /* Space before chat interface */
+  } 
+  }
+  
+  
+  
+  
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Styles for extra small devices */
+  
+    .chatgpt-section
+    {
+      margin: 0 auto;
+      max-width: 600px;
+    }
+  }
+  
+  @media only screen and (min-width: 820px) and (max-width: 1080px) {
+    /* Styles for extra small devices */
+  
+    .chatgpt-section
+    {
+      margin: 1rem auto;
+      max-width: 600px;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 1024px) and (max-width: 1366px) {
+    /* Styles for extra small devices */
+  
+    .chatgpt-section
+    {
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 1280px) {
+    /* Styles for extra small devices */
+  
+    .chatgpt-section
+    {
+      margin: 1rem auto;
+      max-width: 700px;
+    }
+  }
+  

@@ -1,0 +1,35 @@
+<div class="hero-grid">
+  <div *ngFor="let superpower of hero$ | async" class="result-card">
+    <div class="icon-container">
+      <!-- Optional: Use relevant icons for each superpower -->
+    </div>
+    <div class="content-container">
+      <h3>{{ superpower.modelName }}</h3>
+      <h4>{{ superpower.superPower }}</h4>
+      <p>{{ superpower.description }}</p>
+    </div>
+  </div>
+</div>
+<!-- Email results section for authorized users -->
+<div class="email-results-section">
+  <ng-container *ngIf="!(isHeroLoading$ | async); else loading">
+    <button mat-raised-button color="primary" class="email-results-button" (click)="emailResults()"
+      aria-label="Email your superpower results and receive a download link">Email and Download My Results</button>
+    <!-- Link display section -->
+    <div *ngIf="downloadUrl" class="download-link-section">
+      <label for="downloadLink">Download your results here:</label>
+      <a class="downloadLink" id="downloadLink" href="{{ downloadUrl }}" target="_blank">Download</a>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner strokeWidth="3" [diameter]="50" aria-label="Loading... please wait"></mat-spinner>
+    <p class="hero-is-loading">Loading your superpowers...</p>
+  </ng-template>
+</div>
+<!-- Chat interface section -->
+<div class="chatgpt-section">
+  <h2 class="chat-heading">Discuss Your Superpowers</h2>
+  <p class="chat-intro">Explore your superpowers further by chatting with the AI tool provided here, and learn how to
+    apply them in your everyday life.</p>
+  <app-chatgpt-interface></app-chatgpt-interface>
+</div>

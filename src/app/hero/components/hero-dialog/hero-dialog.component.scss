@@ -1,0 +1,18 @@
+.confirm-generation-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.proceed{
+  color: white !important;
+}
+
+@media only screen and (max-width: 599px) {
+    /* Styles for extra small devices */
+    .confirm-generation-dialog {
+      width: 100%;
+    }
+}

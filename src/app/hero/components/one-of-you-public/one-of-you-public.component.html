@@ -1,0 +1,62 @@
+<div class="try-diary-dawn">
+  <h2>Try Diary Dawn</h2>
+  <p class="directions"> Enter a sample of your diary writing to see how our system unveils your superpowers based on
+    the text you provide. <br>
+    <strong>Please note: The analysis process can take up to 30 seconds, depending on the amount of input. Thank you for
+      your patience.</strong>
+  </p>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your text</mat-label>
+    <textarea class="text-area-common" [(ngModel)]="userInput" [fontColor]="'#023020'" appAutosize matInput rows="5"
+      aria-describedby="limitlessInstructions" maxlength="10000"></textarea>
+    <mat-hint align="end">{{ userInput.length }}/10000 characters</mat-hint>
+  </mat-form-field>
+  <p class="input-guidance"> For optimal discovery, please provide as much detail as possible about a recent experience
+    or feeling (up to 10,000 characters). The effectiveness of the analysis depends heavily on the information you
+    provide. Think of this process as conversing with a guide who's here to help you uncover your unique superpowers!
+  </p>
+  <div class="try-diary-dawn-button-container">
+    <button class="reset-button" (click)="clearResults()"
+      aria-label="Click to clear the entered text and any results">Reset</button>
+    <button class="discover-superpowers-button" (click)="analyzeText()"
+      aria-label="Click to analyze your text and discover your superpowers">Discover Superpowers</button>
+  </div>
+  <ng-container *ngIf="(heroIsLoading)">
+    <mat-spinner strokeWidth="3" [diameter]="50" aria-label="Loading... please wait"></mat-spinner>
+    <p class="loading-message"> Analyzing your text, please wait. This may take up to 30 seconds... </p>
+  </ng-container>
+  <!-- Display results if any -->
+  <div *ngIf="analysisResults && analysisResults.length > 0" id="resultsSection">
+    <button class="scroll-down-button" (click)="scrollToResults()"
+      aria-label="Click to scroll down to the analysis results">Click Me to Scroll Down!</button>
+    <h4 class="super-power-results-title">Your superpowers are:</h4>
+    <div *ngFor="let result of analysisResults; let i = index">
+      <mat-card class="result-card">
+        <mat-card-header>
+          <mat-card-title>{{ result.modelName }}</mat-card-title>
+          <mat-card-subtitle>{{ result.superPower }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>{{ result.description }}</mat-card-content>
+      </mat-card>
+    </div>
+    <mat-form-field class="share-dropdown" appearance="fill">
+      <mat-label>Email me my results and create download link!</mat-label>
+      <input class="enter-email-input" matInput [(ngModel)]="this.email"
+        aria-label="Enter your email address to receive the results and a downloadable file">
+    </mat-form-field>
+    <button mat-raised-button class="submit-email-button" color="primary" (click)="submitEmail()"
+      aria-label="Submit your email to share the analysis results">Submit Email</button>
+    <ng-container *ngIf="(imageIsLoading)">
+      <mat-spinner strokeWidth="3" [diameter]="40" aria-label="Emailing... please wait"></mat-spinner>
+      <p class="loading-image">Emailing your superpowers...</p>
+    </ng-container>
+    <div *ngIf="downloadUrl" class="download-section">
+      <p>Your results are also available to download:</p>
+      <a href="{{ this.downloadUrl }}" target="_blank" rel="noopener">Download Results</a>
+    </div>
+    <p class="account-benefits"> Want to analyze more extensively? Create an account for unlimited analyses and
+      personalized insights.</p>
+    <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/register" routerLinkActive="active"
+      aria-label="Create an account for unlimited analyses and personalized insights">Create an account</a>
+  </div>
+</div>

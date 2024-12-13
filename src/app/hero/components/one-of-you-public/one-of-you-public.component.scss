@@ -1,0 +1,218 @@
+.mat-mdc-form-field {
+  width: 90%;
+}
+
+.try-diary-dawn {
+  text-align: center;
+  background-color: var(--main-background);
+  padding: 10px;
+  margin: 1rem;
+}
+
+h2 {
+  font-weight: bold;
+  color: var(--original-color);
+  font-size: 1.2rem;
+}
+
+.directions{
+  color: #333;
+  font-size: 0.9rem;
+}
+
+p {
+  color: var(--original-color);
+  font-size: 0.9rem;
+  margin: 10px;
+}
+
+.text-area-common {
+  font-family: Arial, sans-serif;
+  resize: none; // Disables resizing
+  width: 100%;
+  padding: 5px; 
+  font-size: 0.9rem; 
+}
+
+
+.input-guidance {
+  color: #333;
+  font-style: italic;
+}
+
+.try-diary-dawn-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+:host button {
+  border: none;
+  color: #f9f9f9;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+button.reset-button {
+  background-color: #f44336;
+  color: #f9f9f9;
+}
+
+button.discover-superpowers-button {
+  background-color: var(--header-button-color);
+  color: #f9f9f9;
+}
+
+button.scroll-down-button {
+  background-color: #3f51b5;
+  color: #f9f9f9;
+}
+
+.super-power-results-title {
+  color: var(--original-color);
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 1.2rem;
+}
+
+.loading-message {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.loading-image {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.result-card {
+  text-align: left;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+mat-spinner {
+  margin: 1rem auto;
+}
+
+.share-dropdown {
+  max-width: 200px;
+  margin-top: 10px;
+}
+
+.enter-email-field {
+  background-color: white;
+  margin-top: 10px;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.enter-email-field {
+  background-color: #f9f9f9;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.download-section {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #3f51b5;
+}
+
+.account-benefits {
+  color: #023020;
+}  
+
+@media only screen and (min-width: 768px) {
+  /* Styles for medium devices */
+  .try-diary-dawn {
+    padding: 10px;
+    margin: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .directions{
+    font-size: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin: 10px;
+  }
+  
+  .text-area-common {
+    width: 100%;
+    font-size: 1rem; 
+  }
+  
+  .try-diary-dawn-button-container {
+    justify-content:space-between;
+    flex-direction: row;
+    margin: 1rem;
+    font-size: 2rem;
+  }
+
+  .reset-button{
+    font-weight: bold;
+  }
+
+  button.discover-superpowers-button{
+    font-weight: bold;
+  }
+
+  button.scroll-down-button {
+    max-width: 120px;
+  }
+  
+  :host button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    margin: 4px;
+    border-radius: 4px;
+  }
+  
+  .super-power-results-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 20px;
+  }
+  
+  .result-card {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  
+  .share-dropdown {
+    min-width: 400px;
+    margin-top: 10px;
+  }
+
+  .enter-email-field {
+    margin-top: 10px;
+  }
+
+  .actions-container {
+    margin-top: 10px;
+  }
+
+
+.enter-email-field {
+    margin-bottom: 10px;
+  }
+}
