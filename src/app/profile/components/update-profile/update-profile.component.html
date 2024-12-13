@@ -1,0 +1,56 @@
+<div class="profile-update-container">
+  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="profile-form">
+    <!-- Personal Details Section -->
+    <div class="form-section">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Bio</mat-label>
+        <textarea matInput formControlName="bio"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Birthdate</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthdate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Website</mat-label>
+        <input matInput formControlName="website">
+      </mat-form-field>
+    </div>
+    <!-- Image Upload Section -->
+    <div class="image-upload-section">
+      <label class="profile-picture-label">Profile Picture:</label>
+      <div class="profile-picture-preview" (click)="fileInput.click()">
+        <img [src]="previewUrl || data.pictureUrl || 'default-image.png'" alt="Profile Picture">
+      </div>
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden>
+      <button class="custom-file-upload"
+        (click)="fileInput.click(); $event.stopPropagation(); $event.preventDefault();">Choose File</button>
+    </div>
+    <!-- Interests -->
+    <div class="grouped-section interests-section" formArrayName="interests">
+      <label class="interests-label">Interests:</label>
+      <div *ngFor="let interestCtrl of interests.controls; let i=index" class="interest-field-container">
+        <mat-form-field appearance="fill" class="full-width">
+          <input matInput [formControlName]="i" (keydown.enter)="$event.preventDefault()">
+        </mat-form-field>
+        <button mat-button *ngIf="interests.length > 1" [attr.aria-label]="'Remove interest ' + interests.at(i).value"
+          (click)="removeInterest(i)">Remove</button>
+      </div>
+      <button mat-raised-button color="accent" class="add-interest-btn" type="button" aria-label="Add a new interest"
+        (click)="addInterest()">Add Interest</button>
+    </div>
+    <div class="profile-actions">
+      <button class="submit" mat-raised-button color="primary" type="submit">Update</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

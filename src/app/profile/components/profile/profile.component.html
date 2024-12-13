@@ -1,0 +1,90 @@
+<div class="profile-container">
+  <ng-container *ngFor="let card of cards | async">
+    <!-- Card 1: Insights -->
+    <div class="profile-card" *ngIf="card.title === 'Card 1'">
+      <div class="back_to_bookshelf_button">
+        <app-navigation-button [routePath]="paths.bookshelf" [label]="backToBookshelfLabel"></app-navigation-button>
+      </div>
+      <div class="card-header">
+        <h2>Insights</h2>
+      </div>
+      <div class="insights-content">
+        <div class="insights-content-item">
+          <h3 matLine>Number of Entries:</h3>
+          <h4 class="number-presentation" matLine *ngIf="numberOfEntries$ | async as entries; else noEntries">{{ entries
+            }}</h4>
+          <ng-template #noEntries>
+            <p>No entries</p>
+          </ng-template>
+        </div>
+        <div class="insights-content-item">
+          <h3 matLine>Number of Entries This Month:</h3>
+          <h4 class="number-presentation" matLine *ngIf="numberOfEntriesThisMonth$ | async as entries; else noEntries">
+            {{ entries }}</h4>
+          <ng-template #noEntries>
+            <p>No entries</p>
+          </ng-template>
+        </div>
+        <div class="insights-content-item">
+          <h3 matLine>Number of Entries This Week:</h3>
+          <h4 class="number-presentation" matLine *ngIf="numberOfEntriesThisWeek$ | async as entries; else noEntries">{{
+            entries }}</h4>
+          <ng-template #noEntries>
+            <p>No entries</p>
+          </ng-template>
+        </div>
+        <div class="insights-content-item">
+          <h3 matLine>Number of Books:</h3>
+          <h4 class="number-presentation" matLine *ngIf="numberOfBooks$ | async as books; else noBooks">{{ books }}</h4>
+          <ng-template #noBooks>
+            <p>No books</p>
+          </ng-template>
+        </div>
+        <div class="insights-content-item">
+          <h3 matLine>Average Number of Diaries per Book:</h3>
+          <h4 class="number-presentation" matLine *ngIf="avgDiariesPerBook$ | async as avgDiaries; else noAvgDiaries">{{
+            avgDiaries }}</h4>
+          <ng-template #noAvgDiaries>
+            <p>No average number of diaries</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2: User Profile -->
+    <div class="profile-card" *ngIf="card.title === 'Card 2'">
+      <div class="card-header">
+        <h2>User Profile</h2>
+        <img class="profile-picture" src="{{ userProfileForm.get('profile')?.get('pictureUrl')?.value ||
+          '//ssl.gstatic.com/accounts/ui/avatar_2x.png' }}" alt="Avatar of {{
+          userProfileForm.get('profile')?.get('name')?.value || 'the user' }}">
+        <p>{{ userProfileForm.get('profile')?.get('name')?.value || 'User' }}</p>
+        <p>{{ userProfileForm.get("user")?.get("email")?.value }}</p>
+      </div>
+      <div class="card-content">
+        <p><strong>Location:</strong> {{ userProfileForm.get("profile")?.get("location")?.value }}</p>
+        <p><strong>Bio:</strong> {{ userProfileForm.get("profile")?.get("bio")?.value }}</p>
+        <p><strong>Birthdate:</strong> {{ userProfileForm.get("profile")?.get("birthdate")?.value | date }}</p>
+        <p><strong>Website:</strong> {{ userProfileForm.get("profile")?.get("website")?.value }}</p>
+        <p><strong>Interests:</strong> {{ userProfileForm.get("profile")?.get("interests")?.value }}</p>
+      </div>
+    </div>
+    <!-- Card 3: Quick Access -->
+    <div class="profile-card" *ngIf="card.title === 'Card 3'">
+      <div class="card-header">
+        <h2>Quick Access</h2>
+      </div>
+      <div class="quick-access-controls">
+        <button mat-raised-button color="accent" (click)="openEditProfileModal()" aria-label="Edit Profile">Edit
+          Profile</button>
+        <button mat-raised-button color="accent" (click)="onChangePasswordClick()" aria-label="Change Password">Change
+          Password</button>
+        <mat-form-field appearance="fill">
+          <mat-label>Select a Book</mat-label>
+          <mat-select (selectionChange)="openBookInfoPopup($event.value)" aria-label="Select a Book">
+            <mat-option *ngFor="let book of books$ | async" [value]="book">{{ book.title }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-container>
+</div>
