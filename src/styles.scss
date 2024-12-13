@@ -1,1 +1,155 @@
+@use "@angular/material" as mat;
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import '../node_modules/ngx-guided-tour/scss/guided-tour-base-theme.scss';
+
+@include mat.core();
+
+
+// $diary-primary: mat.define-palette(mat.$indigo-palette);
+$diary-primary: (
+  default: #36817A
+);
+$diary-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+
+$diary-warn: mat.define-palette(mat.$red-palette);
+
+$diary-edit: mat.define-palette(mat.$blue-palette);
+
+$diary-theme: mat.define-light-theme((
+  color: (
+    primary: $diary-primary,
+    accent: $diary-accent,
+    warn: $diary-warn,
+  )
+));
+
+@include mat.all-component-themes($diary-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success-snackbar {
+  background-color: #4caf50;
+  color: white;
+}
+.error-snackbar {
+  background-color: #f44336;
+  color: white;
+}
+.warning-snackbar {
+  background-color: #ff9800;
+  color: white;
+}
+.info-snackbar {
+  background-color: #2196f3;
+  color: white;
+}  
+
+svg {
+  width: 100%;
+  height: auto;
+}
+
+:root {
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  --primary-color: #{mat.get-color-from-palette($diary-theme, 500)};
+  --dark-primary-color: #{mat.get-color-from-palette($diary-theme, 900)};
+  --accent-color: #{mat.get-color-from-palette($diary-theme, A200)};
+  --warn-color: #{mat.get-color-from-palette($diary-theme, 500)};
+  --main-background: #ecf8f0;
+  --against-background: #2e7d32;
+  --original-color: #36817A;
+  --header-button-color: #4caf50;
+  --header-button-color-hover: #43a047;
+  --header-button-color-active: #388e3c;
+
+  --limitless-diary: #36817a;
+  --limitless-diary-dark: #2e7068;
+  --limitless-diary-light: #a3f2d1;
+
+  // Define other diary colors similarly
+  --journey-diary: #b1adfa;
+  --journey-diary-dark: #8c8af2;
+  --journey-diary-light: #d1cff2;
+
+  --gratitude-diary: #a83632;
+  --gratitude-diary-dark: #821726;
+  --gratitude-diary-light: #f2d7a3;
+
+  --emotion-diary: #7B4B94;
+  --emotion-diary-dark: #5A3165;
+  --emotion-diary-light: #B892C0;
+
+  --lesson-diary: #d17b49;
+  --lesson-diary-dark: #b56329;
+  --lesson-diary-light: #e3a587;
+
+  --dream-diary: #135e8c;
+  --dream-diary-dark: #0f4b6b;
+  --dream-diary-light: #a3eef2;
+
+  --affirmation-diary: #8c135e;
+  --affirmation-diary-dark: #6b0f4b;
+  --affirmation-diary-light: #f2a3e8;
+
+  // Define hover colors for diary entries
+  --limitless-diary-hover: #a3f2d1;
+  --gratitude-diary-hover: #739fb3;
+  --affirmation-diary-hover: #f2d7a3;
+  --emotion-diary-hover: #B892C0;
+  --lesson-diary-hover: #e3a587;
+  --dream-diary-hover: #a3eef2;
+  --journey-diary-hover: #f2a3e8;
+}
+
+// Extra Small Devices (Phones, <600px)
+// This covers small devices such as phones.
+
+// @media only screen and (max-width: 599px) {
+//     /* Styles for extra small devices */
+// }
+
+
+
+// @media only screen and (min-width: 768px) and (max-width: 1024px) {
+//   /* Styles for medium devices */
+// }
+
+
+
+
+// Small Devices (Tablets, 600px - 899px)
+// This range is typical for tablets in portrait and landscape orientation.
+//
+// @media only screen and (min-width: 600px) and (max-width: 899px) {
+//     /* Styles for small devices */
+// }
+
+// Medium Devices (Small Laptops/Desktops, 900px - 1199px)
+// This covers small laptops and large tablets in landscape mode.
+
+// @media only screen and (min-width: 900px) and (max-width: 1199px) {
+//     /* Styles for medium devices */
+// }
+
+
+// Large Devices (Desktops, 1200px - 1799px)
+// Suitable for most standard desktop screens.
+
+// @media only screen and (min-width: 1200px) and (max-width: 1799px) {
+//     /* Styles for large devices */
+// }
+
+
+// Extra Large Devices (Large Desktops, ≥1800px)
+// Covers very large desktop screens.
+
+// @media only screen and (min-width: 1800px) {
+//     /* Styles for extra large devices */
+// }
