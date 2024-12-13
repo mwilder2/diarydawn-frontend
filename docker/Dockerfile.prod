@@ -1,0 +1,38 @@
+# Stage 1: Build the Angular application
+FROM node:18 as builder
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# RUN rm -rf ./dist
+
+# RUN npm cache verify
+# RUN npm cache clean --force
+RUN npm install -g @angular/cli
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application
+RUN ng build
+
+# Stage 2: Serve the app with Express
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy only the compiled app and necessary files from the builder stage
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/server.ts ./server.ts
+COPY --from=builder /app/node_modules ./node_modules
+
+# Expose the port the app runs on
+EXPOSE 4000
+
+# Start the server
+CMD ["npm", "run", "serve:ssr:diary-dr-l"]

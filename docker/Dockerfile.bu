@@ -1,0 +1,27 @@
+# Build stage
+FROM node:18 AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install -g @angular/cli
+
+COPY . .
+
+RUN npm install
+
+RUN npm run build
+
+# Serve stage
+FROM node:18
+
+WORKDIR /app
+
+RUN npm install -g @angular/cli
+
+COPY --from=build /app /app
+
+EXPOSE 80
+
+CMD ["npm", "run", "serve:ssr:diary-acana"]
