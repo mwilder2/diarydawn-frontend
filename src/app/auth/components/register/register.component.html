@@ -1,0 +1,32 @@
+<div class="register-container">
+  <h1>Register</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="form">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" type="email" aria-label="Email Address" placeholder="Enter your email"
+        class="form-control" autocomplete="username" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="invalid-feedback">
+        Please enter a valid email. </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" id="password" type="password" aria-label="Password"
+        placeholder="Create a password" autocomplete="new-password" class="form-control" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+        class="invalid-feedback"> Password must be at least 8 characters long. </div>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input formControlName="confirmPassword" id="confirm-password" type="password" aria-label="Confirm Password"
+        placeholder="Confirm your password" autocomplete="new-password" class="form-control" />
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched"
+        class="invalid-feedback"> Passwords must match. </div>
+    </div>
+    <button [disabled]="registerForm.invalid" type="submit" aria-label="Register" class="btn btn-primary">Sign
+      up</button>
+  </form>
+  <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/login" routerLinkActive="active"
+    aria-label="Sign in to your account"> Already have an account? Sign in here </a>
+  <a [routerLinkActiveOptions]="{ exact: true }" aria-label="Reset your password" routerLink="/reset-password"
+    routerLinkActive="active" aria-label="Reset your password"> Forgot password? </a>
+</div>

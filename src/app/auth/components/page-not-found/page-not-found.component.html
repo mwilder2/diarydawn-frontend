@@ -1,0 +1,14 @@
+<div class="page-not-found-container">
+  <div class="page-not-found-content">
+    <div class="page-not-found-header">
+      <h1 class="oops">Oops!</h1>
+      <h2 class="not-found">404 Not Found</h2>
+      <div class="error-details"> Sorry, an error has occurred, Requested page not found! </div>
+      <div class="error-actions">
+        <p class="path-name"> Did you mean <a [routerLink]="path">{{ path?.replace('/', '') }}</a>? </p>
+        <a class="take-me-home" routerLink="/">
+          <span class="glyphicon glyphicon-home"></span> Take Me Home </a>
+      </div>
+    </div>
+  </div>
+</div>

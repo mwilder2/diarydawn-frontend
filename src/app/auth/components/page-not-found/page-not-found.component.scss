@@ -1,0 +1,111 @@
+.page-not-found-container {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
+
+  .page-not-found-content {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: var(--main-background); // Use your theme variable for card background
+    text-align: center;
+
+    .page-not-found-header {
+      h1.oops {
+        color: var(--primary-color); // Use your theme variable for primary color
+        font-size: 2rem;
+      }
+
+      h2.not-found {
+        color: var(--accent-color); // Use your theme variable for secondary color
+        font-size: 1.5rem;
+      }
+
+      .error-details {
+        color: var(--primary-color); // Use your theme variable for text color
+        margin-top: 10px;
+        font-size: 1rem;
+      }
+
+      .error-actions {
+        margin-top: 20px;
+
+        .path-name {
+          margin: 10px 0;
+          a {
+            color: blue; // Use your theme variable for link color
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+
+            }
+          }
+        }
+
+        .take-me-home {
+          display: inline-block;
+          padding: 10px 15px;
+          background-color: var(--against-background); // Use your theme variable for buttons
+          color: white; // Use your theme variable for button text
+          border-radius: 5px;
+          text-decoration: none;
+          &:hover {
+            background-color: #36817A;
+          }
+
+          .glyphicon-home {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// .page-not-found-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// .page-not-found-content {
+//   text-align: center;
+// }
+// .page-not-found-header {
+//   padding: 20px;
+//   background: var(--main-background);
+//   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+//   border-radius: 5px;
+// }
+// .oops {
+//   color: var(--against-main-background);
+// }
+// .not-found {
+//   color: #24292e;
+//   font-size: 26px;
+// }
+// .error-details {
+//   margin-top: 20px;
+//   color: #24292e;
+// }
+// .error-actions {
+//   margin-top: 20px;
+// }
+// .take-me-home {
+//   color: #fff;
+//   background-color: var(--against-main-background);
+//   padding: 10px 20px;
+//   border-radius: 5px;
+//   text-decoration: none;
+// }
+// .take-me-home:hover {
+//   color: #fff;
+//   background: #f6495f;
+// }
+// .path-name {
+//   margin-top: 20px;
+// }
