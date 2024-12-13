@@ -1,0 +1,10 @@
+<div class="confirmation-dialog">
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+  <mat-dialog-content>{{ data.message }}</mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false"
+      aria-label="{{ data.cancelButtonLabel || 'Cancel' }}">Cancel</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" mat-button
+      aria-label="{{ data.confirmButtonLabel || 'Confirm' }}">Confirm</button>
+  </mat-dialog-actions>
+</div>
