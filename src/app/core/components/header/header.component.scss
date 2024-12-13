@@ -1,0 +1,386 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(to right, #e8f5e9 0%, #c8e6c9 100%);
+
+  .logo {
+    h1 {
+      color: var(--against-background) 
+    }
+  }
+
+  .navbar_buttons {
+    display: flex;
+    align-items: center;
+
+    .navbar_button {
+      text-decoration: none;
+      font-weight: normal;
+      background-color: var(--header-button-color);
+      color: white; 
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--header-button-color-hover); 
+      }
+
+      &.active {
+      background-color: var(--header-button-color-active); 
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 599px) {
+  /* Styles for extra small devices */
+  .header {
+    width: 100%;
+    padding: 0;
+    margin-left: 1.8rem;
+  
+    .logo {
+      h1 {
+        margin-left: 5px;
+        font-size: 0.9rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 5px;
+      font-size: 0.8rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 344px) {
+  .header {
+    height: 60px;
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 5px;
+        font-size: 0.9rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 0.8rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 374) {
+ .header {
+    padding-left: 2rem;
+    margin-left: 5rem;
+  
+    .logo {
+      h1 {
+        margin-left: 5px;
+        font-size: 1rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 5px;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .header {
+    height: 60px;
+    padding: 0;
+    margin-left: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 0;
+        font-size: 0.9rem;
+        margin-left: 5px;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 0;
+      font-size: 0.8rem;       
+      margin-right: 5px;
+      gap: 2px;
+  
+      .navbar_button {
+        margin-left: 0;
+        padding: 0x;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 390px) {
+  .header {
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 412px) and (max-width: 414px) {
+  .header {
+    padding: 0;
+    margin-left: 0;
+    .logo {
+      h1 {
+        margin-left: 5px;
+        font-size: 1.1rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 5px;       
+      font-size: 0.8rem;       
+      .navbar_button {
+        margin-left: 0;
+        padding: 4;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 430px) {
+  .header {
+    padding: 0;
+    margin-left: 0;
+    .logo {
+      h1 {
+        margin-left: 5px;
+        font-size: 1.1rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 5px;       
+      font-size: 0.8rem;       
+      .navbar_button {
+        margin-left: 0;
+        padding: 4;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .header {
+    width: 95%;
+    padding: 0;
+    margin: 0 auto;
+
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1.2rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 820px) {
+  .header {
+    width: 100%;
+    padding: 0;
+    margin-right: 1rem;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1.4rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1.2rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 853px){
+  .header {
+    margin: 0 auto;
+    width: 95%;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1.4rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1.2rem;
+       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 912px) {
+  .header {
+    height: 60px;
+    width: 100%;
+    padding: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1.4rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1.3rem;
+
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 1.5rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1.2rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .header {
+    margin: 0 auto;
+    width: 95%;
+    padding: 0;
+  
+    .logo {
+      h1 {
+        margin-left: 10px;
+        font-size: 2rem;
+      }
+    }
+  
+    .navbar_buttons {
+      margin-right: 10px;
+      font-size: 1.2rem;       
+  
+      .navbar_button {
+        margin-left: 5px;
+        padding: 5px;
+        border-radius: 4px;
+        font-weight: normal;
+      }
+    }
+  }
+}

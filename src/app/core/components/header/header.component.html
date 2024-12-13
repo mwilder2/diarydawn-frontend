@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="logo">
+    <h1>Diary Dawn</h1>
+  </div>
+  <nav class="navbar_buttons">
+    <!-- Conditionally show the Home button -->
+    <a *ngIf="!isAuthenticated" [routerLinkActiveOptions]="{ exact: true }" class="navbar_button"
+      [routerLink]="[paths.home]" routerLinkActive="active" aria-label="Navigate to Home Page">Home</a>
+    <a *ngIf="isAuthenticated" class="navbar_button" [routerLink]="[paths.profile]" routerLinkActive="active"
+      aria-label="Navigate to Profile Page">Profile</a>
+    <a *ngIf="isAuthenticated" class="navbar_button" [routerLink]="[paths.bookshelf]" routerLinkActive="active"
+      aria-label="Navigate to Bookshelf Page">Bookshelf</a>
+    <a class="navbar_button" [routerLink]="[paths.project]" routerLinkActive="active"
+      aria-label="Project Details">Project</a>
+    <ng-container *ngIf="isAuthenticated; else loginRegisterGroup">
+      <app-logout-button></app-logout-button>
+    </ng-container>
+    <ng-template #loginRegisterGroup>
+      <a class="navbar_button" [routerLink]="[paths.login]" routerLinkActive="active"
+        aria-label="Navigate to Login Page">Login</a>
+      <a class="navbar_button" [routerLink]="[paths.register]" routerLinkActive="active"
+        aria-label="Navigate to Registration Page">Register</a>
+    </ng-template>
+  </nav>
+</div>

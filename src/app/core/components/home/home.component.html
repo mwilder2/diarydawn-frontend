@@ -1,0 +1,39 @@
+<div class="home-page-container">
+  <section class="welcome-section">
+    <h1>Embrace Your Uniqueness</h1>
+    <p>Securely store your memories, thoughts, and dreams, and uncover your superpowers with just a few clicks.</p>
+    <button class="try-free-button" (click)="openHeroDialog()" mat-raised-button color="primary">Experience My
+      Classifiers</button>
+  </section>
+  <section class="features-section">
+    <h2>Unleash Your Potential with Diary Dawn</h2>
+    <div class="features-list">
+      <div class="feature">
+        <img src="assets/images/never-give-up.jpg" alt="Never Give Up" class="feature-image">
+        <p>Track your personal progress and growth with advanced psychological insights tailored to your unique
+          abilities.</p>
+      </div>
+      <div class="feature">
+        <h3>Chat with My AI</h3>
+        <p>Use the ChatGPT integration to discuss any traits, feelings, or behaviors you wish to explore. For the best
+          experience, generate your superpowers first by clicking on the 'Experience My Classifiers' button above.</p>
+        <button class="feature-button" routerLink="/try-chatgpt" mat-raised-button color="primary">Try ChatGPT
+          Integration</button>
+      </div>
+      <div class="feature">
+        <h3>Explore My Projects</h3>
+        <p>Discover the innovative technologies and methodologies behind Diary Dawn and Cortex Connections.</p>
+        <button class="feature-button" routerLink="/projects-selection" mat-raised-button color="primary">Explore My
+          Projects</button>
+      </div>
+    </div>
+  </section>
+  <section class="login-register-section">
+    <h2>Welcome Back!</h2>
+    <p>Please log in or register to continue exploring your unique abilities and securely manage your diary entries.</p>
+    <div class="login-register-buttons">
+      <button class="login-button" routerLink="/login" mat-raised-button color="accent">Login</button>
+      <button class="register-button" routerLink="/register" mat-raised-button color="accent">Register</button>
+    </div>
+  </section>
+</div>

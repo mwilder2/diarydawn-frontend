@@ -1,0 +1,32 @@
+<div class="about-contact-container">
+  <section class="about-section">
+    <h2>About Diary Dawn</h2>
+    <p>Diary Dawn is a personal diary platform that I created to help individuals reflect on their journeys, discover
+      their strengths, and cherish their unique stories. My mission is to offer a safe and private space for
+      self-expression and personal growth. Diary Dawn combines insights from modern psychology with user-friendly
+      technology to empower users to better understand themselves.</p>
+    <p>Building this platform has been a part of my own journey of discovery and learning, a time of challenges and
+      growth. It's not just a project; it's a passion to make personal development accessible to everyone.</p>
+  </section>
+  <section class="contact-section">
+    <h2>Contact Me</h2>
+    <form class="contact-form" (submit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput required [(ngModel)]="contactForm.subject" name="name" aria-label="Enter your full name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput required email [(ngModel)]="contactForm.to" name="email"
+          aria-label="Enter your email address" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput required [(ngModel)]="contactForm.message" name="message"
+          aria-label="Write your message here"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" aria-label="Send Message"
+        [disabled]="!contactForm.subject || !contactForm.to || !contactForm.message"> Send Message </button>
+    </form>
+  </section>
+</div>

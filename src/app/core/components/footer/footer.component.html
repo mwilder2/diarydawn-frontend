@@ -1,0 +1,21 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-info">
+      <p>© {{ currentYear }} {{ appName }}</p>
+    </div>
+    <div class="footer-content">
+      <nav class="footer-links">
+        <a *ngIf="!isAuthenticated" [routerLink]="paths.home" aria-label="Navigate to Home Page">Home</a>
+        <a *ngIf="!isAuthenticated" [routerLink]="paths.project" aria-label="Project Details">Project</a>
+        <a *ngIf="isAuthenticated" [routerLink]="paths.bookshelf" aria-label="Navigate to Bookshelf Page">Bookshelf</a>
+        <a *ngIf="isAuthenticated" [routerLink]="paths.profile" aria-label="Navigate to Profile Page">Profile</a>
+        <a [routerLink]="paths.aboutContact" aria-label="Navigate to About and Contact Page">About & Contact</a>
+        <a [routerLink]="paths.termsOfService" aria-label="Read our Terms of Service">Terms</a>
+        <a [routerLink]="paths.privacyPolicy" aria-label="Read our Privacy Policy">Privacy</a>
+      </nav>
+      <ng-container *ngIf="isAuthenticated" class="logout-button">
+        <app-logout-button></app-logout-button>
+      </ng-container>
+    </div>
+  </div>
+</footer>
